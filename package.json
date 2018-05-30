@@ -1,0 +1,44 @@
+{
+  "name": "nav-faker",
+  "version": "1.0.0-SNAPSHOT.3",
+  "description": "Faker for å generere fødselsnummer, navn, og mer.",
+  "main": "dist//lib/index.js",
+  "types": "dist/lib/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@types/seedrandom": "^2.4.27",
+    "seedrandom": "^2.4.3",
+    "typescript": "^2.8.3"
+  },
+  "devDependencies": {
+    "@types/jest": "^22.2.3",
+    "jest": "^23.0.1",
+    "ts-jest": "^22.4.6"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+    "globals": {
+      "ts-jest": {
+        "tsConfigFile": "tsconfig.json"
+      }
+    },
+    "testMatch": [
+      "**/*.test.+(ts|tsx|js)"
+    ],
+    "modulePathIgnorePatterns": [
+      "node_modules",
+      "dist"
+    ]
+  }
+}
