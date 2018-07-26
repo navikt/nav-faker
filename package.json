@@ -3,6 +3,9 @@
   "version": "1.0.2",
   "description": "Faker for å generere fødselsnummer, navn, og mer.",
   "main": "dist/index.js",
+  "files": [
+    "/lib"
+  ],
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "jest",
