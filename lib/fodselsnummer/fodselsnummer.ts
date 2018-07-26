@@ -2,9 +2,9 @@ import NavFaker from '../navfaker';
 import { beregnKontrollsiffer1, beregnKontrollsiffer2, datoSomStreng, tilfeldigKjønn } from './fodselsnummer-utils';
 import { padLeftNumber } from '../utils/string-utils';
 
-export interface genererOptions {
-    fødtEtter?: Date;
-    fødtFør?: Date
+export interface GenererConfig {
+    fødselsdato: Date;
+    kjønn: Kjønn
 }
 
 export enum Kjønn {
@@ -28,9 +28,19 @@ class Fødselsnummer {
         this.faker = faker;
     }
 
-    generer(options?: genererOptions) {
-        const tilfeldigDato = this.faker.dato.mellom(new Date('1900-01-01'), new Date());
-        return this.genererTilfeldigFødselsnummer(tilfeldigDato, tilfeldigKjønn(this.faker));
+    generer(providedConfig?: GenererConfig) {
+        const config = this.getConfigOrDefault(providedConfig);
+        return this.genererTilfeldigFødselsnummer(config.fødselsdato, config.kjønn);
+    }
+
+    private getConfigOrDefault(options?: GenererConfig) {
+        if (!options) {
+            return {
+                kjønn: tilfeldigKjønn(this.faker),
+                fødselsdato: this.faker.dato.mellom(new Date('1900-01-01'), new Date())
+            }
+        }
+        return options;
     }
 
     private genererTilfeldigFødselsnummer(dato: Date, kjønn: Kjønn) {
