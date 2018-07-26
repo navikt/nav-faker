@@ -1,11 +1,11 @@
 const path = require('path');
 
 module.exports = {
-    entry: './src/demo/index.tsx',
+    entry: 'src/lib/index.ts',
     module: {
         rules: [
             {
-                test: /\.tsx?$/,
+                test: /\.ts?$/,
                 use: 'ts-loader',
                 exclude: /node_modules/
             }
@@ -18,4 +18,4 @@ module.exports = {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist')
     }
-}
+};

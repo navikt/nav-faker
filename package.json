@@ -2,10 +2,11 @@
   "name": "nav-faker",
   "version": "1.0.0-SNAPSHOT.3",
   "description": "Faker for å generere fødselsnummer, navn, og mer.",
-  "main": "dist/lib/index.js",
-  "types": "dist/lib/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "build": "tsc"
   },
   "author": "",
   "license": "MIT",
