@@ -1,4 +1,4 @@
-import { datoSomStreng } from './fødselsnummer-utils';
+import { datoSomStreng } from './fodselsnummer-utils';
 
 test('Konverterer dato til streng', () => {
     const date = new Date('1995-12-17T03:24:00');

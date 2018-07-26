@@ -1,5 +1,5 @@
 import NavFaker from '../navfaker';
-import { beregnKontrollsiffer1, beregnKontrollsiffer2, datoSomStreng } from './fødselsnummer-utils';
+import { beregnKontrollsiffer1, beregnKontrollsiffer2, datoSomStreng } from './fodselsnummer-utils';
 import { padLeftNumber } from '../utils/string-utils';
 
 export interface genererOptions {

@@ -1,5 +1,5 @@
 import Random from './random';
-import Fødselsnummer from './fødselsnummer/fødselsnummer';
+import Fødselsnummer from './fodselsnummer/fodselsnummer';
 
 class NavFaker {
     random: Random;
