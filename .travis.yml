@@ -6,6 +6,9 @@ install:
 script:
 - yarn test
 deploy:
+  provider: npm
+  email: joakiml@gmail.com
+  skip_cleanup: true
   on:
     tags: true
     branch: master
