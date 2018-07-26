@@ -1,5 +1,5 @@
 import NavFaker from '../navfaker';
-import { beregnKontrollsiffer1, beregnKontrollsiffer2, datoSomStreng } from './fodselsnummer-utils';
+import { beregnKontrollsiffer1, beregnKontrollsiffer2, datoSomStreng, tilfeldigKjønn } from './fodselsnummer-utils';
 import { padLeftNumber } from '../utils/string-utils';
 
 export interface genererOptions {
@@ -7,9 +7,9 @@ export interface genererOptions {
     fødtFør?: Date
 }
 
-enum Kjønn {
-    MANN = 0,
-    KVINNE = 1
+export enum Kjønn {
+    KVINNE = 0,
+    MANN = 1
 }
 
 function erMellom(number: number, min: number, max: number) {
@@ -29,7 +29,8 @@ class Fødselsnummer {
     }
 
     generer(options?: genererOptions) {
-        return this.genererTilfeldigFødselsnummer(new Date(), Kjønn.MANN);
+        const tilfeldigDato = this.faker.dato.mellom(new Date('1900-01-01'), new Date());
+        return this.genererTilfeldigFødselsnummer(tilfeldigDato, tilfeldigKjønn(this.faker));
     }
 
     private genererTilfeldigFødselsnummer(dato: Date, kjønn: Kjønn) {
