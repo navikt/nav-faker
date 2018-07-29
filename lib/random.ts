@@ -1,4 +1,4 @@
-import seedrandom from 'seedrandom';
+import  seedrandom = require('seedrandom');
 
 export interface NumberConfig {
     min: number;

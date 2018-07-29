@@ -15,12 +15,12 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@types/seedrandom": "^2.4.27",
     "seedrandom": "^2.4.3",
     "typescript": "^2.8.3"
   },
   "devDependencies": {
     "@types/jest": "^22.2.3",
+    "@types/seedrandom": "^2.4.27",
     "jest": "^23.0.1",
     "ts-jest": "^22.4.6",
     "tslint": "^5.11.0"
