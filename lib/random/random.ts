@@ -25,6 +25,10 @@ class Random {
         return this.randomNumber(min, max);
     }
 
+    public vektetSjanse(vekt: number) {
+        return this.randomGenerator.double() <= vekt;
+    }
+
     // The maximum is inclusive and the minimum is inclusive
     private randomNumber(min: number, max: number) {
         min = Math.ceil(min);
