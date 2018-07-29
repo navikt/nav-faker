@@ -1,19 +1,19 @@
-import Random from './random';
-import Fødselsnummer from './fodselsnummer/fodselsnummer';
 import Dato from './dato/dato';
+import Fødselsnummer from './fodselsnummer/fodselsnummer';
+import Random from './random';
 
 class NavFaker {
-    random: Random;
-    fødselsnummer: Fødselsnummer;
-    dato: Dato;
+    public random: Random;
+    public fødselsnummer: Fødselsnummer;
+    public dato: Dato;
 
-    constructor() {
+        constructor() {
         this.fødselsnummer = new Fødselsnummer(this);
         this.random = new Random();
         this.dato = new Dato(this);
     }
 
-    seed(seed: string) {
+    public seed(seed: string) {
         this.random = new Random(seed);
     }
 

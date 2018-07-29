@@ -1,19 +1,19 @@
 import NavFaker from '../navfaker';
-import { beregnKontrollsiffer1, beregnKontrollsiffer2, datoSomStreng, tilfeldigKjønn } from './fodselsnummer-utils';
 import { padLeftNumber } from '../utils/string-utils';
+import { beregnKontrollsiffer1, beregnKontrollsiffer2, datoSomStreng, tilfeldigKjønn } from './fodselsnummer-utils';
 
 export interface GenererConfig {
     fødselsdato: Date;
-    kjønn: Kjønn
+    kjønn: Kjønn;
 }
 
 export enum Kjønn {
     KVINNE = 0,
-    MANN = 1
+    MANN = 1,
 }
 
-function erMellom(number: number, min: number, max: number) {
-    return number >= min && number <= max;
+function erMellom(tall: number, min: number, max: number) {
+    return tall >= min && tall <= max;
     }
 
 function getLøpenummerSomListe(start: number, end: number) {
@@ -28,7 +28,7 @@ class Fødselsnummer {
         this.faker = faker;
     }
 
-    generer(providedConfig?: GenererConfig) {
+    public generer(providedConfig?: GenererConfig) {
         const config = this.getConfigOrDefault(providedConfig);
         return this.genererTilfeldigFødselsnummer(config.fødselsdato, config.kjønn);
     }
@@ -36,9 +36,9 @@ class Fødselsnummer {
     private getConfigOrDefault(options?: GenererConfig) {
         if (!options) {
             return {
+                fødselsdato: this.faker.dato.mellom(new Date('1900-01-01'), new Date()),
                 kjønn: tilfeldigKjønn(this.faker),
-                fødselsdato: this.faker.dato.mellom(new Date('1900-01-01'), new Date())
-            }
+            };
         }
         return options;
     }
@@ -64,7 +64,7 @@ class Fødselsnummer {
 
         function gyldigeKontrollsiffere(individnummer: string) {
             const fødselsnummer = datoSomStreng(dato) + individnummer;
-            let k1 = beregnKontrollsiffer1(fødselsnummer);
+            const k1 = beregnKontrollsiffer1(fødselsnummer);
             if (k1 === 10) {
                 return false;
             }
@@ -89,7 +89,7 @@ class Fødselsnummer {
         } else if (erMellom(year, 2000, 2039)) {
             return getLøpenummerSomListe(500, 999);
         } else {
-            throw new Error("Ugyldig dato");
+            throw new Error('Ugyldig dato');
         }
     }
 

@@ -13,10 +13,10 @@ class Random {
         this.randomGenerator = seedrandom(seed);
     }
 
-    number(config: NumberConfig | number) {
+    public number(config: NumberConfig | number) {
         let min = 0;
         let max = 0;
-        if (! (typeof config === "number")) {
+        if (! (typeof config === 'number')) {
             min = config.min;
             max = config.max;
         } else {
@@ -25,7 +25,7 @@ class Random {
         return this.randomNumber(min, max);
     }
 
-    //The maximum is inclusive and the minimum is inclusive
+    // The maximum is inclusive and the minimum is inclusive
     private randomNumber(min: number, max: number) {
         min = Math.ceil(min);
 
