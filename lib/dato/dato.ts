@@ -8,7 +8,7 @@ class Dato {
         this.faker = faker;
     }
 
-    mellom(fra: Date, til: Date) {
+    public mellom(fra: Date, til: Date) {
         const fraMilli = Date.parse(fra.toString());
         const dateOffset = this.faker.random.number(Date.parse(til.toString()) - fraMilli);
 

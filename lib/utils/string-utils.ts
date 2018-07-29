@@ -1,6 +1,6 @@
 
-export function padLeftNumber(number: number, width: number) {
-    return padLeft(number.toString(), width, '0');
+export function padLeftNumber(tall: number, width: number) {
+    return padLeft(tall.toString(), width, '0');
 }
 
 export function padLeft(streng: string, width: number, symbol: string) {
