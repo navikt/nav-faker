@@ -4,7 +4,7 @@ import { beregnKontrollsiffer1, beregnKontrollsiffer2, datoSomStreng, tilfeldigK
 
 export interface GenererConfig {
     fødselsdato: Date;
-    kjønn: Kjønn;
+    kjønn?: Kjønn;
 }
 
 export enum Kjønn {
@@ -14,7 +14,7 @@ export enum Kjønn {
 
 function erMellom(tall: number, min: number, max: number) {
     return tall >= min && tall <= max;
-    }
+}
 
 function getLøpenummerSomListe(start: number, end: number) {
     return Array(end - start + 1).fill(0).map((_, index: number) => padLeftNumber(start + index, 3));
@@ -34,13 +34,19 @@ class Fødselsnummer {
     }
 
     private getConfigOrDefault(options?: GenererConfig) {
+        let fødselsdato;
+        let kjønn;
         if (!options) {
-            return {
-                fødselsdato: this.faker.dato.mellom(new Date('1900-01-01'), new Date()),
-                kjønn: tilfeldigKjønn(this.faker),
-            };
+            fødselsdato = this.faker.dato.mellom(new Date('1900-01-01'), new Date());
+            kjønn = tilfeldigKjønn(this.faker);
+        } else {
+            fødselsdato = options.fødselsdato;
+            kjønn = options.kjønn ? options.kjønn : this.faker.random.vektetSjanse(0.5) ? Kjønn.KVINNE : Kjønn.MANN;
         }
-        return options;
+        return {
+            fødselsdato,
+            kjønn,
+        };
     }
 
     private genererTilfeldigFødselsnummer(dato: Date, kjønn: Kjønn) {
