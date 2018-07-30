@@ -1,6 +1,6 @@
 {
   "name": "nav-faker",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Faker for å generere fødselsnummer, navn, og mer.",
   "main": "dist/index.js",
   "files": [
