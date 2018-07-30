@@ -10,11 +10,12 @@
   "scripts": {
     "test": "jest",
     "build": "tsc && npm run lint",
-    "lint": "tslint lib/**/*"
+    "lint": "tslint lib/**/*.ts"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "moment": "^2.22.2",
     "seedrandom": "^2.4.3",
     "typescript": "^2.8.3"
   },

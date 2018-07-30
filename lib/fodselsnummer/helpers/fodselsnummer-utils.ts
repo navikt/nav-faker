@@ -1,6 +1,6 @@
-import NavFaker from '../navfaker';
-import { padLeftNumber } from '../utils/string-utils';
-import { Kjønn } from './fodselsnummer';
+import NavFaker from '../../navfaker';
+import { padLeftNumber } from '../../utils/string-utils';
+import { Kjønn } from '../fodselsnummer';
 
 export function datoSomStreng(dato: Date) {
     const dd = dato.getDate();
@@ -36,4 +36,9 @@ export function tilfeldigKjønn(navFaker: NavFaker) {
         return Kjønn.MANN;
     }
     return Kjønn.KVINNE;
+}
+
+export function erDnummer(fødselsnummer: string) {
+    const dag = Number(fødselsnummer.substring(0, 2));
+    return dag > 40 && dag <= 71;
 }

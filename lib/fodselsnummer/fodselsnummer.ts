@@ -1,6 +1,8 @@
 import NavFaker from '../navfaker';
 import { padLeftNumber } from '../utils/string-utils';
-import { beregnKontrollsiffer1, beregnKontrollsiffer2, datoSomStreng, tilfeldigKjønn } from './fodselsnummer-utils';
+import { getConfigOrDefault } from './helpers/config-helper';
+import { fødselsnummerTilDato } from './helpers/fodselsdato-beregner';
+import { beregnKontrollsiffer1, beregnKontrollsiffer2, datoSomStreng } from './helpers/fodselsnummer-utils';
 
 export interface GenererConfig {
     fødselsdato: Date;
@@ -29,24 +31,12 @@ class Fødselsnummer {
     }
 
     public generer(providedConfig?: GenererConfig) {
-        const config = this.getConfigOrDefault(providedConfig);
+        const config = getConfigOrDefault(this.faker, providedConfig);
         return this.genererTilfeldigFødselsnummer(config.fødselsdato, config.kjønn);
     }
 
-    private getConfigOrDefault(options?: GenererConfig) {
-        let fødselsdato;
-        let kjønn;
-        if (!options) {
-            fødselsdato = this.faker.dato.mellom(new Date('1900-01-01'), new Date());
-            kjønn = tilfeldigKjønn(this.faker);
-        } else {
-            fødselsdato = options.fødselsdato;
-            kjønn = options.kjønn ? options.kjønn : this.faker.random.vektetSjanse(0.5) ? Kjønn.KVINNE : Kjønn.MANN;
-        }
-        return {
-            fødselsdato,
-            kjønn,
-        };
+    public getFødselsdato(fødselsnummer: string): Date {
+        return fødselsnummerTilDato(fødselsnummer);
     }
 
     private genererTilfeldigFødselsnummer(dato: Date, kjønn: Kjønn) {
