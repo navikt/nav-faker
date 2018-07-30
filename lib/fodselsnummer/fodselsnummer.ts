@@ -1,10 +1,12 @@
 import NavFaker from '../navfaker';
 import { padLeftNumber } from '../utils/string-utils';
-import { beregnKontrollsiffer1, beregnKontrollsiffer2, datoSomStreng, tilfeldigKjønn } from './fodselsnummer-utils';
+import { getConfigOrDefault } from './helpers/config-helper';
+import { fødselsnummerTilDato } from './helpers/fodselsdato-beregner';
+import { beregnKontrollsiffer1, beregnKontrollsiffer2, datoSomStreng } from './helpers/fodselsnummer-utils';
 
 export interface GenererConfig {
     fødselsdato: Date;
-    kjønn: Kjønn;
+    kjønn?: Kjønn;
 }
 
 export enum Kjønn {
@@ -14,7 +16,7 @@ export enum Kjønn {
 
 function erMellom(tall: number, min: number, max: number) {
     return tall >= min && tall <= max;
-    }
+}
 
 function getLøpenummerSomListe(start: number, end: number) {
     return Array(end - start + 1).fill(0).map((_, index: number) => padLeftNumber(start + index, 3));
@@ -29,18 +31,12 @@ class Fødselsnummer {
     }
 
     public generer(providedConfig?: GenererConfig) {
-        const config = this.getConfigOrDefault(providedConfig);
+        const config = getConfigOrDefault(this.faker, providedConfig);
         return this.genererTilfeldigFødselsnummer(config.fødselsdato, config.kjønn);
     }
 
-    private getConfigOrDefault(options?: GenererConfig) {
-        if (!options) {
-            return {
-                fødselsdato: this.faker.dato.mellom(new Date('1900-01-01'), new Date()),
-                kjønn: tilfeldigKjønn(this.faker),
-            };
-        }
-        return options;
+    public getFødselsdato(fødselsnummer: string): Date {
+        return fødselsnummerTilDato(fødselsnummer);
     }
 
     private genererTilfeldigFødselsnummer(dato: Date, kjønn: Kjønn) {

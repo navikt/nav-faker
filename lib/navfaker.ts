@@ -1,13 +1,13 @@
 import Dato from './dato/dato';
 import Fødselsnummer from './fodselsnummer/fodselsnummer';
-import Random from './random';
+import Random from './random/random';
 
 class NavFaker {
     public random: Random;
     public fødselsnummer: Fødselsnummer;
     public dato: Dato;
 
-        constructor() {
+    constructor() {
         this.fødselsnummer = new Fødselsnummer(this);
         this.random = new Random();
         this.dato = new Dato(this);

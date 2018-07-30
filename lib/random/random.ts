@@ -1,4 +1,4 @@
-import seedrandom from 'seedrandom';
+import  seedrandom = require('seedrandom');
 
 export interface NumberConfig {
     min: number;
@@ -23,6 +23,10 @@ class Random {
             max = config;
         }
         return this.randomNumber(min, max);
+    }
+
+    public vektetSjanse(vekt: number) {
+        return this.randomGenerator.double() <= vekt;
     }
 
     // The maximum is inclusive and the minimum is inclusive
