@@ -38,7 +38,7 @@ nav-faker har følgende moduler:
 ```
     public generer(providedConfig?: GenererConfig): string;
 
-    public getFødselsdato(fødselsnummer: string): Date ;
+    public getFødselsdato(fødselsnummer: string): Date;
 
 ```
 
