@@ -7,9 +7,51 @@ Planen er å støtte å generere data som:
 * Fødselsnummere
 * Adresser
 
-## Komme i gang
+## Install
 
-Mer om hvordan komme i gang kommer her.
+``` npm install --save nav-faker ```
+
+## Usage
+
+### React / Javascript
+
+```
+import navfaker from 'nav-faker/dist/index';
+
+navfaker.fødselsnummer.generer();
+
+```
+
+
+## API
+
+### Summary
+
+nav-faker har følgende moduler:
+
+* random
+* fødselsnummer
+
+
+### Fødselsnummer
+
+```
+    public generer(providedConfig?: GenererConfig): string;
+
+    public getFødselsdato(fødselsnummer: string): Date ;
+
+```
+
+### Random
+
+* vektetSjanse
+* number
+
+
+## Bidra?
+
+Kom gjerne med innspill, ønsker og pull-requester!
+
 
 ## Henvendelser
 
