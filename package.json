@@ -4,7 +4,7 @@
   "description": "Faker for å generere fødselsnummer, navn, og mer.",
   "main": "dist/index.js",
   "files": [
-    "/lib"
+    "/dist"
   ],
   "types": "dist/index.d.ts",
   "scripts": {
