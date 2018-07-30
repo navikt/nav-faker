@@ -1,8 +1,8 @@
-import { GenererConfig, Kjønn } from '../fodselsnummer';
+import { GenererFødselsnummerOptions, Kjønn } from '../fodselsnummer';
 import { tilfeldigKjønn } from './fodselsnummer-utils';
 import NavFaker from '../../navfaker';
 
-export function getConfigOrDefault(navFaker: NavFaker, options?: GenererConfig) {
+export function getConfigOrDefault(navFaker: NavFaker, options?: GenererFødselsnummerOptions) {
     let fødselsdato;
     let kjønn;
     if (!options) {

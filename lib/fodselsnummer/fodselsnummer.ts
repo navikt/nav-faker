@@ -4,9 +4,9 @@ import { getConfigOrDefault } from './helpers/config-helper';
 import { fødselsnummerTilDato } from './helpers/fodselsdato-beregner';
 import { beregnKontrollsiffer1, beregnKontrollsiffer2, datoSomStreng } from './helpers/fodselsnummer-utils';
 
-export interface GenererConfig {
+export interface GenererFødselsnummerOptions {
     fødselsdato: Date;
-    kjønn?: Kjønn;
+    kjønn?: number;
 }
 
 export enum Kjønn {
@@ -30,9 +30,9 @@ class Fødselsnummer {
         this.faker = faker;
     }
 
-    public generer(providedConfig?: GenererConfig) {
-        const config = getConfigOrDefault(this.faker, providedConfig);
-        return this.genererTilfeldigFødselsnummer(config.fødselsdato, config.kjønn);
+    public generer(options?: GenererFødselsnummerOptions) {
+        const parsedOptions = getConfigOrDefault(this.faker, options);
+        return this.genererTilfeldigFødselsnummer(parsedOptions.fødselsdato, parsedOptions.kjønn);
     }
 
     public getFødselsdato(fødselsnummer: string): Date {
