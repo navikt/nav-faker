@@ -1,8 +1,21 @@
+import moment = require('moment');
 import navfaker from '../index';
 
 test('Generer gyldig fødselsnummer', () => {
     const faker = navfaker;
     expect(faker.fødselsnummer.generer()).toHaveLength(11);
+});
+
+test('Generer myndig fødselsnummer', () => {
+    const faker = navfaker;
+
+    const fødselsnummer = faker.fødselsnummer.myndig();
+
+    const fødselsdato = faker.fødselsnummer.getFødselsdato(fødselsnummer);
+    const alder = moment().diff(moment(fødselsdato), 'years');
+
+    expect(alder).toBeLessThanOrEqual(100);
+    expect(alder).toBeGreaterThanOrEqual(18);
 });
 
 test('Parser fødselsdato', () => {

@@ -1,3 +1,4 @@
+import moment = require('moment');
 import NavFaker from '../navfaker';
 import { padLeftNumber } from '../utils/string-utils';
 import { getConfigOrDefault } from './helpers/config-helper';
@@ -13,7 +14,6 @@ export enum Kjønn {
     KVINNE = 0,
     MANN = 1,
 }
-
 function erMellom(tall: number, min: number, max: number) {
     return tall >= min && tall <= max;
 }
@@ -33,6 +33,15 @@ class Fødselsnummer {
     public generer(options?: GenererFødselsnummerOptions) {
         const parsedOptions = getConfigOrDefault(this.faker, options);
         return this.genererTilfeldigFødselsnummer(parsedOptions.fødselsdato, parsedOptions.kjønn);
+    }
+
+    public myndig(options?: GenererFødselsnummerOptions) {
+        const maxAlder = moment().subtract(100, 'years').toDate();
+        const minAlder = moment().subtract(18, 'years').toDate();
+        const fødselsdato = this.faker.dato.mellom(maxAlder, minAlder);
+        const kjønn = options ? options.kjønn : undefined;
+
+        return this.generer({kjønn, fødselsdato});
     }
 
     public getFødselsdato(fødselsnummer: string): Date {

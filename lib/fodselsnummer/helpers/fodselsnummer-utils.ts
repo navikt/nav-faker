@@ -1,6 +1,4 @@
-import NavFaker from '../../navfaker';
 import { padLeftNumber } from '../../utils/string-utils';
-import { Kjønn } from '../fodselsnummer';
 
 export function datoSomStreng(dato: Date) {
     const dd = dato.getDate();
@@ -28,14 +26,6 @@ function beregnKontrollsiffer(fodselsnummer: string, multiplikatorTabell: number
 
     if (rest === 0) { return 0; }
     return 11 - rest;
-}
-
-export function tilfeldigKjønn(navFaker: NavFaker) {
-    const randomNumber = navFaker.random.number(1);
-    if (randomNumber === 0) {
-        return Kjønn.MANN;
-    }
-    return Kjønn.KVINNE;
 }
 
 export function erDnummer(fødselsnummer: string) {
