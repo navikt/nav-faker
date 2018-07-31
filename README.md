@@ -1,4 +1,4 @@
-# nav-faker
+# nav-faker [![Maintainability](https://api.codeclimate.com/v1/badges/e32a0e4aee01f71e08f6/maintainability)](https://codeclimate.com/github/navikt/nav-faker/maintainability)
 
 nav-faker er et lite bibliotek som lar deg generere opp norske testdata. Biblioteket er under utvikling.
 
