@@ -10,7 +10,8 @@
   "scripts": {
     "test": "jest",
     "build": "tsc && npm run lint",
-    "lint": "tslint lib/**/*.ts"
+    "lint": "tslint lib/**/*.ts",
+    "commit": "git cz"
   },
   "author": "",
   "license": "MIT",
@@ -22,6 +23,7 @@
   "devDependencies": {
     "@types/jest": "^22.2.3",
     "@types/seedrandom": "^2.4.27",
+    "cz-conventional-changelog": "^2.1.0",
     "jest": "^23.0.1",
     "semantic-release": "^15.9.3",
     "ts-jest": "^22.4.6",
@@ -48,5 +50,10 @@
       "node_modules",
       "dist"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
