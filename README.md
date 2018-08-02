@@ -67,3 +67,6 @@ Spørsmål knyttet til koden eller prosjektet kan rettes mot:
 ### For NAV-ansatte
 
 Interne henvendelser kan sendes via Slack i kanalen #team-oppfølging.
+
+<iframe frameborder="0" width="100%" height="500px" src="https://repl.it/Dn6S?lite=true"></iframe>
+
