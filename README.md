@@ -2,10 +2,12 @@
 
 nav-faker er et lite bibliotek som lar deg generere opp norske testdata. Biblioteket er under utvikling.
 
-Planen er å støtte å generere data som:
+Planen er å støtte å generere tilfeldige
 
-* Fødselsnummere
+* Fødselsnummere / d-nummere
 * Adresser
+* Navn
+* Tall og datoer
 
 ## Install
 
@@ -22,6 +24,10 @@ navfaker.fødselsnummer.generer();
 
 ```
 
+## Test det ut
+
+https://repl.it/@Quist/nav-faker-demo
+
 
 ## API
 
@@ -30,6 +36,8 @@ navfaker.fødselsnummer.generer();
 nav-faker har følgende moduler:
 
 * random
+* dato
+* person
 * fødselsnummer
 
 
