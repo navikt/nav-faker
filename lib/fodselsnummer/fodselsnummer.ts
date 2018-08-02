@@ -35,6 +35,15 @@ class Fødselsnummer {
         return this.genererTilfeldigFødselsnummer(parsedOptions.fødselsdato, parsedOptions.kjønn);
     }
 
+    public dnummer(options?: GenererFødselsnummerOptions): string {
+        const fødselsnummer = this.generer(options);
+
+        const førsteSiffer = Number(fødselsnummer.charAt(0));
+        const nyttFørstesiffer = førsteSiffer + 4;
+
+        return String(nyttFørstesiffer).concat(fødselsnummer.substring(1));
+    }
+
     public myndig(options?: GenererFødselsnummerOptions) {
         const maxAlder = moment().subtract(100, 'years').toDate();
         const minAlder = moment().subtract(18, 'years').toDate();
