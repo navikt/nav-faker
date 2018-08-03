@@ -20,7 +20,7 @@ Planen er å støtte å generere tilfeldige
 ```
 import navfaker from 'nav-faker/dist/index';
 
-navfaker.fødselsnummer.generer();
+navfaker.fødselsnummer.generer(); // => 10108000398
 
 ```
 
