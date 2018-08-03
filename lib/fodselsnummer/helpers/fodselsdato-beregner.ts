@@ -40,5 +40,4 @@ function getFiresifretÅr(fødselsnummer: string) {
     } else {
         return year + 1900;
     }
-
 }
