@@ -13,10 +13,12 @@ class Random {
         this.randomGenerator = seedrandom(seed);
     }
 
-    public number(config: NumberConfig | number) {
+    public number(config?: NumberConfig | number) {
         let min = 0;
         let max = 0;
-        if (! (typeof config === 'number')) {
+        if (config === undefined) {
+            max = 99999;
+        } else if (! (typeof config === 'number')) {
             min = config.min;
             max = config.max;
         } else {

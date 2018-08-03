@@ -1,4 +1,3 @@
-
 export function padLeftNumber(tall: number, width: number) {
     return padLeft(tall.toString(), width, '0');
 }
