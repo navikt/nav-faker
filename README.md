@@ -35,25 +35,49 @@ https://repl.it/@Quist/nav-faker-demo
 
 nav-faker har følgende moduler:
 
-* random
-* dato
-* person
-* fødselsnummer
 
+* dato
+* fødselsnummer
+* random
+* person
+* telefon
+
+### Dato
+
+```
+    mellom(fra: Date, til: Date): Date;
+    forÅrSiden(årSiden: number): Date;
+```
 
 ### Fødselsnummer
 
 ```
-    public generer(providedConfig?: GenererConfig): string;
+    generer(fødselsdato?: Date, kjønn?: number): string;
+    dnummer(fødselsdato?: Date, kjønn?: number): string;
+    myndig(kjønn?: number): string;
+    getFødselsdato(fødselsnummer: string): Date;
+```
 
-    public getFødselsdato(fødselsnummer: string): Date;
+### Person
 
+```
+    kjønn(): number;
+    antallBarn(fødselsdato: Date): number;
 ```
 
 ### Random
 
-* vektetSjanse
-* number
+```
+    number(config?: NumberConfig | number): number;
+    vektetSjanse(vekt: number): boolean;
+```
+
+### Telefon
+
+```
+    mobil(): string;
+    jobb(): string;
+```
 
 
 ## Bidra?
