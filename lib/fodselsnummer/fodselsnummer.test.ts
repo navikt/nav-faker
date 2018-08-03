@@ -7,11 +7,9 @@ test('Generer gyldig fødselsnummer', () => {
 });
 
 test('Generer myndig fødselsnummer', () => {
-    const faker = navfaker;
+    const fødselsnummer = navfaker.fødselsnummer.myndig();
 
-    const fødselsnummer = faker.fødselsnummer.myndig();
-
-    const fødselsdato = faker.fødselsnummer.getFødselsdato(fødselsnummer);
+    const fødselsdato = navfaker.fødselsnummer.getFødselsdato(fødselsnummer);
     const alder = moment().diff(moment(fødselsdato), 'years');
 
     expect(alder).toBeLessThanOrEqual(100);
@@ -19,9 +17,18 @@ test('Generer myndig fødselsnummer', () => {
 });
 
 test('Parser fødselsdato', () => {
-    const faker = navfaker;
-    const fødselsdato = faker.fødselsnummer.getFødselsdato('10108000398');
+    const fødselsdato = navfaker.fødselsnummer.getFødselsdato('10108000398');
+
     expect(fødselsdato.getFullYear()).toEqual(1980);
     expect(fødselsdato.getDate()).toEqual(10);
     expect(fødselsdato.getMonth()).toEqual(9);
+});
+
+test('Lager d-nummer', () => {
+    const dnummer = navfaker.fødselsnummer.dnummer();
+    const førsteSiffer = Number(dnummer.charAt(0));
+
+    expect(dnummer.length).toEqual(11);
+    expect(førsteSiffer).toBeGreaterThanOrEqual(4);
+    expect(førsteSiffer).toBeLessThanOrEqual(7);
 });
