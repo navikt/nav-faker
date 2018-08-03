@@ -2,7 +2,7 @@
 
 nav-faker er et lite bibliotek som lar deg generere opp norske testdata. Biblioteket er under utvikling.
 
-Planen er å implementere støtte for å kunne generere tilfeldige:
+Planen er å implementere støtte for generering av tilfeldige:
 
 * Fødselsnummere / d-nummere
 * Adresser
