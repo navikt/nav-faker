@@ -5,11 +5,6 @@ import { getConfigOrDefault } from './helpers/config-helper';
 import { fødselsnummerTilDato } from './helpers/fodselsdato-beregner';
 import { beregnKontrollsiffer1, beregnKontrollsiffer2, datoSomStreng } from './helpers/fodselsnummer-utils';
 
-export interface GenererFødselsnummerOptions {
-    fødselsdato: Date;
-    kjønn?: number;
-}
-
 export enum Kjønn {
     KVINNE = 0,
     MANN = 1,
@@ -30,13 +25,13 @@ class Fødselsnummer {
         this.faker = faker;
     }
 
-    public generer(options?: GenererFødselsnummerOptions) {
-        const parsedOptions = getConfigOrDefault(this.faker, options);
+    public generer(fødselsdato?: Date, kjønn?: number): string {
+        const parsedOptions = getConfigOrDefault(this.faker, {fødselsdato, kjønn});
         return this.genererTilfeldigFødselsnummer(parsedOptions.fødselsdato, parsedOptions.kjønn);
     }
 
-    public dnummer(options?: GenererFødselsnummerOptions): string {
-        const fødselsnummer = this.generer(options);
+    public dnummer(fødselsdato?: Date, kjønn?: number): string {
+        const fødselsnummer = this.generer(fødselsdato, kjønn);
 
         const førsteSiffer = Number(fødselsnummer.charAt(0));
         const nyttFørstesiffer = førsteSiffer + 4;
@@ -44,13 +39,12 @@ class Fødselsnummer {
         return String(nyttFørstesiffer).concat(fødselsnummer.substring(1));
     }
 
-    public myndig(options?: GenererFødselsnummerOptions) {
+    public myndig(kjønn?: number): string {
         const maxAlder = moment().subtract(100, 'years').toDate();
         const minAlder = moment().subtract(18, 'years').toDate();
         const fødselsdato = this.faker.dato.mellom(maxAlder, minAlder);
-        const kjønn = options ? options.kjønn : undefined;
 
-        return this.generer({kjønn, fødselsdato});
+        return this.generer(fødselsdato, kjønn);
     }
 
     public getFødselsdato(fødselsnummer: string): Date {
