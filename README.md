@@ -84,6 +84,8 @@ nav-faker har følgende moduler:
 
 Kom gjerne med innspill, ønsker og pull-requester!
 
+nav-faker er skrevet i typescript og kompileres ned til javascript. Dette kan da dras inn som en avhengighet av andre applikasjoner. nav-faker er satt opp med et CI bygg på [travis](https://travis-ci.org/navikt/nav-faker/).
+
 ### Oppsett
 
 Installer dependencies: `yarn `
@@ -97,6 +99,10 @@ Bygg og linting med: `yarn build `
 ### Committe 
 
 Vi bruker verktøyet [semantic-release](https://github.com/semantic-release/semantic-release) for å bestemme når og hvilken versjon som skal publiseres til NPM. Verktøyet analysere commit-meldinger for å bestemme om patch, minor eller major versjon skal publiseres.
+
+Du _bør_ derfor følgende gjeldene [commit-message convention](https://travis-ci.org/navikt/nav-faker/). For enkelhetskyld kan du installere [commitizen](https://github.com/commitizen/cz-cli) som interaktivt hjelper deg å skrive commit-meldinger: `yarn global add commitizen`
+
+Når du ønsker å commite: `yarn commit `
 
 ### Publisering til NPM
 
