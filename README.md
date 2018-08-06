@@ -84,6 +84,29 @@ nav-faker har følgende moduler:
 
 Kom gjerne med innspill, ønsker og pull-requester!
 
+### Oppsett
+
+Installer dependencies: `yarn `
+
+Bygg og linting med: `yarn build `
+
+### Test
+
+`yarn test`
+
+### Committe 
+
+Vi bruker verktøyet [semantic-release](https://github.com/semantic-release/semantic-release) for å bestemme når og hvilken versjon som skal publiseres til NPM. Verktøyet analysere commit-meldinger for å bestemme om patch, minor eller major versjon skal publiseres.
+
+### Publisering til NPM
+
+Når kode merges inn i master, analyseres semantic-release commit-meldingene siden forrige publish til NPM. Basert på innholdet i meldingene, bestemmes om og isåfall hvordan versjon som skal publiseres.
+
+
+## Filosofi
+
+nav-faker baserer seg på [marak/faker](https://github.com/Marak/faker.js). Mockingen deles inn i moduler, .f.eks fødselsnummer, dato og person. I utgangspunktet er planen å kun støtte å generere mock-data, _ikke_ et util bibliotek.  
+
 
 ## Henvendelser
 
