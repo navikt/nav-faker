@@ -1,9 +1,11 @@
 import moment = require('moment');
 import navfaker from '../index';
+import {erGyldigFødselsnummer} from './helpers/fodselsnummer-utils';
 
 test('Generer gyldig fødselsnummer', () => {
-    const faker = navfaker;
-    expect(faker.fødselsnummer.generer()).toHaveLength(11);
+    const fødselsnummer = navfaker.fødselsnummer.generer();
+    expect(fødselsnummer).toHaveLength(11);
+    expect(erGyldigFødselsnummer(fødselsnummer)).toEqual(true);
 });
 
 test('Generer myndig fødselsnummer', () => {
@@ -14,6 +16,7 @@ test('Generer myndig fødselsnummer', () => {
 
     expect(alder).toBeLessThanOrEqual(100);
     expect(alder).toBeGreaterThanOrEqual(18);
+    expect(erGyldigFødselsnummer(fødselsnummer)).toEqual(true);
 });
 
 test('Parser fødselsdato', () => {
@@ -24,11 +27,16 @@ test('Parser fødselsdato', () => {
     expect(fødselsdato.getMonth()).toEqual(9);
 });
 
-test('Lager d-nummer', () => {
-    const dnummer = navfaker.fødselsnummer.dnummer();
-    const førsteSiffer = Number(dnummer.charAt(0));
+describe('d-nummer', () => {
 
-    expect(dnummer.length).toEqual(11);
-    expect(førsteSiffer).toBeGreaterThanOrEqual(4);
-    expect(førsteSiffer).toBeLessThanOrEqual(7);
+    test('Lager d-nummer', () => {
+        const dnummer = navfaker.fødselsnummer.dnummer();
+        const førsteSiffer = Number(dnummer.charAt(0));
+
+        expect(dnummer.length).toEqual(11);
+        expect(førsteSiffer).toBeGreaterThanOrEqual(4);
+        expect(førsteSiffer).toBeLessThanOrEqual(7);
+        expect(erGyldigFødselsnummer(dnummer)).toEqual(true);
+    });
+
 });
