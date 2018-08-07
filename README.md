@@ -37,7 +37,7 @@ nav-faker har følgende moduler:
 
 
 * dato
-* fødselsnummer
+* personIdentifikator
 * random
 * person
 * telefon
@@ -49,12 +49,12 @@ nav-faker har følgende moduler:
     forÅrSiden(årSiden: number): Date;
 ```
 
-### Fødselsnummer
+### PersonIdentifikator
 
 ```
-    generer(fødselsdato?: Date, kjønn?: number): string;
+    fødselsnummer(fødselsdato?: Date, kjønn?: number): string;
     dnummer(fødselsdato?: Date, kjønn?: number): string;
-    myndig(kjønn?: number): string;
+    myndigFødselsnummer(kjønn?: number): string;
     getFødselsdato(fødselsnummer: string): Date;
 ```
 
@@ -68,7 +68,7 @@ nav-faker har følgende moduler:
 ### Random
 
 ```
-    number(config?: NumberConfig | number): number;
+    number(max?: number, min?: number): number;
     vektetSjanse(vekt: number): boolean;
 ```
 
