@@ -1,12 +1,3 @@
-import { padLeftNumber } from '../../utils/string-utils';
-
-export function datoSomStreng(dato: Date) {
-    const dd = dato.getDate();
-    const mm = dato.getMonth() + 1;
-    const yy = dato.getFullYear() % 100;
-    return `${padLeftNumber(dd, 2) + padLeftNumber(mm, 2) + padLeftNumber(yy, 2)}`;
-}
-
 export function beregnKontrollsiffer1(fodselsnummer: string) {
     const kontrollSiffer1Multiplikatorer = [3, 7, 6, 1, 8, 9, 4, 5, 2];
     return beregnKontrollsiffer(fodselsnummer, kontrollSiffer1Multiplikatorer);
@@ -31,4 +22,20 @@ function beregnKontrollsiffer(fodselsnummer: string, multiplikatorTabell: number
 export function erDnummer(fødselsnummer: string) {
     const dag = Number(fødselsnummer.substring(0, 2));
     return dag > 40 && dag <= 71;
+}
+
+export function erGyldigFødselsnummer(fødselsnummer: string) {
+    if (fødselsnummer.length !== 11) {
+        return false;
+    }
+
+    const k1 = Number(fødselsnummer.charAt(9));
+    const k2 = Number(fødselsnummer.charAt(10));
+    if (k1 !== beregnKontrollsiffer1(fødselsnummer)) {
+        return false;
+    }
+    if (k2 !== beregnKontrollsiffer2(fødselsnummer)) {
+        return false;
+    }
+    return true;
 }

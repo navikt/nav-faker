@@ -5,7 +5,7 @@ interface UserOptions {
     kjønn?: number;
 }
 
-export function getConfigOrDefault(navFaker: NavFaker, options: UserOptions) {
+export function getConfigOrDefault(navFaker: NavFaker, options: UserOptions, erDnummer: boolean) {
     let fødselsdato = options.fødselsdato;
     let kjønn = options.kjønn;
 
@@ -16,6 +16,7 @@ export function getConfigOrDefault(navFaker: NavFaker, options: UserOptions) {
         kjønn = navFaker.person.kjønn();
     }
     return {
+        erDnummer,
         fødselsdato,
         kjønn,
     };
