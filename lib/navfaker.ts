@@ -1,5 +1,6 @@
 import Dato from './dato/dato';
 import Fødselsnummer from './fodselsnummer/fodselsnummer';
+import Navn from './navn/navn';
 import Person from './person/person';
 import Random from './random/random';
 import Telefon from './telefon/telefon';
@@ -10,6 +11,7 @@ class NavFaker {
     public dato: Dato;
     public person: Person;
     public telefon: Telefon;
+    public navn: Navn;
 
     constructor() {
         this.fødselsnummer = new Fødselsnummer(this);
@@ -17,6 +19,7 @@ class NavFaker {
         this.dato = new Dato(this);
         this.person = new Person(this);
         this.telefon = new Telefon(this);
+        this.navn = new Navn(this);
     }
 
     public seed(seed: string) {
