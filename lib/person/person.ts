@@ -26,9 +26,11 @@ class Person {
         }
         const maksAntallBarn = foreldresAlder - 18;
         if (this.faker.random.vektetSjanse(0.05)) {
-            return this.faker.random.number({min: 6, max: Math.min(maksAntallBarn, 15)});
+            const max = Math.min(maksAntallBarn, 15);
+            const min = 6;
+            return this.faker.random.integer(max, min);
         } else if (this.faker.random.vektetSjanse(0.75)) {
-            return this.faker.random.number(Math.min(maksAntallBarn, 5));
+            return this.faker.random.integer(Math.min(maksAntallBarn, 5));
         }
         return 0;
     }
