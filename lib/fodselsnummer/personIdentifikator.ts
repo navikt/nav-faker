@@ -9,7 +9,7 @@ export enum Kjønn {
     MANN = 1,
 }
 
-class Fødselsnummer {
+class PersonIdentifikator {
 
     private faker: NavFaker;
 
@@ -17,7 +17,7 @@ class Fødselsnummer {
         this.faker = faker;
     }
 
-    public generer(fødselsdato?: Date, kjønn?: number): string {
+    public fødselsnummer(fødselsdato?: Date, kjønn?: number): string {
         const parsedOptions = getConfigOrDefault(this.faker, {fødselsdato, kjønn}, false);
         return new FødselsnummerBeregner(this.faker, parsedOptions).tilfeldigFødselsnummer();
     }
@@ -27,12 +27,12 @@ class Fødselsnummer {
         return new FødselsnummerBeregner(this.faker, parsedOptions).tilfeldigFødselsnummer();
     }
 
-    public myndig(kjønn?: number): string {
+    public myndigFødselsnummer(kjønn?: number): string {
         const maxAlder = moment().subtract(100, 'years').toDate();
         const minAlder = moment().subtract(18, 'years').toDate();
         const fødselsdato = this.faker.dato.mellom(maxAlder, minAlder);
 
-        return this.generer(fødselsdato, kjønn);
+        return this.fødselsnummer(fødselsdato, kjønn);
     }
 
     public getFødselsdato(fødselsnummer: string): Date {
@@ -40,4 +40,4 @@ class Fødselsnummer {
     }
 }
 
-export default Fødselsnummer;
+export default PersonIdentifikator;

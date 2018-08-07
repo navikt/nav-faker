@@ -1,4 +1,4 @@
-import {Kjønn} from '../fodselsnummer/fodselsnummer';
+import { Kjønn } from '../fodselsnummer/personIdentifikator';
 import navfaker from '../index';
 import NavFaker from '../navfaker';
 import guttenavn from './data/guttenavn';
