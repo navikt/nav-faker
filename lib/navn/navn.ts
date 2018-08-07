@@ -1,6 +1,5 @@
-import { Kjønn } from '../fodselsnummer/personIdentifikator';
-import navfaker from '../index';
 import NavFaker from '../navfaker';
+import { Kjønn } from '../personidentifikator/personIdentifikator';
 import guttenavn from './data/guttenavn';
 import jentenavn from './data/jentenavn';
 
@@ -18,9 +17,9 @@ class Navn {
 
     private getFornavnForKjønn(kjønn: number) {
         if (kjønn === Kjønn.MANN) {
-            return navfaker.random.arrayElement(guttenavn);
+            return this.navfaker.random.arrayElement(guttenavn);
         } else {
-            return navfaker.random.arrayElement(jentenavn);
+            return this.navfaker.random.arrayElement(jentenavn);
         }
     }
 

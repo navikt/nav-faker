@@ -1,7 +1,7 @@
 import Dato from './dato/dato';
-import PersonIdentifikator from './fodselsnummer/personIdentifikator';
 import Navn from './navn/navn';
 import Person from './person/person';
+import PersonIdentifikator from './personidentifikator/personIdentifikator';
 import Random from './random/random';
 import Telefon from './telefon/telefon';
 
