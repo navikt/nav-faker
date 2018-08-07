@@ -37,7 +37,7 @@ class FødselsnummerBeregner {
     public tilfeldigFødselsnummer() {
         const gyldigeIndividNummere = this.getGyldigeIndividnummere();
         const tilfeldigIndividNummer =
-            gyldigeIndividNummere[this.faker.random.number(gyldigeIndividNummere.length - 1)];
+            gyldigeIndividNummere[this.faker.random.integer(gyldigeIndividNummere.length - 1)];
 
         const justertFødselsdato = this.justerFødselsdatoForDnummer();
         const k1 = beregnKontrollsiffer1(justertFødselsdato + tilfeldigIndividNummer);

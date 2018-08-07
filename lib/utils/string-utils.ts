@@ -15,6 +15,6 @@ export function padLeft(streng: string, width: number, symbol: string) {
 
 export function replaceSymbolWithNumber(streng: string, navfaker: NavFaker): string {
     return streng.split('').map((char) =>
-        char === '#' ? String(navfaker.random.number(9)) : char,
+        char === '#' ? String(navfaker.random.integer(9)) : char,
     ).join('');
 }
