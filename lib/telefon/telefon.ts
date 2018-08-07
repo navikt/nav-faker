@@ -11,13 +11,13 @@ class Telefon {
 
     public mobil(): string {
         const muligeFørsteSiffere = ['4', '9'];
-        const førsteSiffer = muligeFørsteSiffere[this.faker.random.number(muligeFørsteSiffere.length - 1)];
+        const førsteSiffer = muligeFørsteSiffere[this.faker.random.integer(muligeFørsteSiffere.length - 1)];
         return replaceSymbolWithNumber(`${førsteSiffer}#######`, this.faker);
     }
 
     public jobb(): string {
         const muligeFørsteSiffere = ['1', '2', '3', '5', '6', '7', '8'];
-        const førsteSiffer = muligeFørsteSiffere[this.faker.random.number(muligeFørsteSiffere.length - 1)];
+        const førsteSiffer = muligeFørsteSiffere[this.faker.random.integer(muligeFørsteSiffere.length - 1)];
         return replaceSymbolWithNumber(`${førsteSiffer}#######`, this.faker);
     }
 

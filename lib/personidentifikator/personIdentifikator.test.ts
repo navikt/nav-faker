@@ -2,16 +2,16 @@ import moment = require('moment');
 import navfaker from '../index';
 import {erGyldigFødselsnummer} from './helpers/fodselsnummer-utils';
 
-test('Generer gyldig fødselsnummer', () => {
-    const fødselsnummer = navfaker.fødselsnummer.generer();
+test('Generer gyldig personIdentifikator', () => {
+    const fødselsnummer = navfaker.personIdentifikator.fødselsnummer();
     expect(fødselsnummer).toHaveLength(11);
     expect(erGyldigFødselsnummer(fødselsnummer)).toEqual(true);
 });
 
-test('Generer myndig fødselsnummer', () => {
-    const fødselsnummer = navfaker.fødselsnummer.myndig();
+test('Generer myndigFødselsnummer personIdentifikator', () => {
+    const fødselsnummer = navfaker.personIdentifikator.myndigFødselsnummer();
 
-    const fødselsdato = navfaker.fødselsnummer.getFødselsdato(fødselsnummer);
+    const fødselsdato = navfaker.personIdentifikator.getFødselsdato(fødselsnummer);
     const alder = moment().diff(moment(fødselsdato), 'years');
 
     expect(alder).toBeLessThanOrEqual(100);
@@ -20,7 +20,7 @@ test('Generer myndig fødselsnummer', () => {
 });
 
 test('Parser fødselsdato', () => {
-    const fødselsdato = navfaker.fødselsnummer.getFødselsdato('10108000398');
+    const fødselsdato = navfaker.personIdentifikator.getFødselsdato('10108000398');
 
     expect(fødselsdato.getFullYear()).toEqual(1980);
     expect(fødselsdato.getDate()).toEqual(10);
@@ -30,7 +30,7 @@ test('Parser fødselsdato', () => {
 describe('d-nummer', () => {
 
     test('Lager d-nummer', () => {
-        const dnummer = navfaker.fødselsnummer.dnummer();
+        const dnummer = navfaker.personIdentifikator.dnummer();
         const førsteSiffer = Number(dnummer.charAt(0));
 
         expect(dnummer.length).toEqual(11);

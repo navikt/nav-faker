@@ -1,20 +1,20 @@
 import Dato from './dato/dato';
-import Fødselsnummer from './fodselsnummer/fodselsnummer';
 import Navn from './navn/navn';
 import Person from './person/person';
+import PersonIdentifikator from './personidentifikator/personIdentifikator';
 import Random from './random/random';
 import Telefon from './telefon/telefon';
 
 class NavFaker {
     public random: Random;
-    public fødselsnummer: Fødselsnummer;
+    public personIdentifikator: PersonIdentifikator;
     public dato: Dato;
     public person: Person;
     public telefon: Telefon;
     public navn: Navn;
 
     constructor() {
-        this.fødselsnummer = new Fødselsnummer(this);
+        this.personIdentifikator = new PersonIdentifikator(this);
         this.random = new Random();
         this.dato = new Dato(this);
         this.person = new Person(this);

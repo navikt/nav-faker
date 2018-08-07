@@ -1,10 +1,5 @@
 import  seedrandom = require('seedrandom');
 
-export interface NumberConfig {
-    min: number;
-    max: number;
-}
-
 class Random {
 
     private randomGenerator: seedrandom.prng;
@@ -13,18 +8,17 @@ class Random {
         this.randomGenerator = seedrandom(seed);
     }
 
-    public number(config?: NumberConfig | number) {
-        let min = 0;
-        let max = 0;
-        if (config === undefined) {
-            max = 99999;
-        } else if (! (typeof config === 'number')) {
-            min = config.min;
-            max = config.max;
-        } else {
-            max = config;
+    public integer(max?: number, min?: number) {
+        let parsedMin = 0;
+        let parsedMax =  Number.MAX_SAFE_INTEGER;
+
+        if (min !== undefined) {
+            parsedMin = min;
         }
-        return this.randomNumber(min, max);
+        if (max !== undefined) {
+            parsedMax = max;
+        }
+        return this.randomNumber(parsedMin, parsedMax);
     }
 
     public vektetSjanse(vekt: number) {
@@ -32,7 +26,7 @@ class Random {
     }
 
     public arrayElement(elements: any[]) {
-        return elements[this.number(elements.length - 1)];
+        return elements[this.integer(elements.length - 1)];
     }
 
     // The maximum is inclusive and the minimum is inclusive
