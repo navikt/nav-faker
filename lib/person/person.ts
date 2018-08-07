@@ -1,6 +1,6 @@
 import moment = require('moment');
 
-import { Kjønn } from '../fodselsnummer/fodselsnummer';
+import { Kjønn } from '../fodselsnummer/personIdentifikator';
 import NavFaker from '../navfaker';
 
 class Person {

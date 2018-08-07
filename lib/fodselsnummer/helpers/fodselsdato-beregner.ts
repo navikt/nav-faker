@@ -4,7 +4,7 @@ import { erDnummer } from './fodselsnummer-utils';
 
 export function fødselsnummerTilDato(fødselsnummer: string): Date {
     if (fødselsnummer.length !== 11) {
-        throw Error('Ugyldig lengde på fødselsnummer: ' + fødselsnummer);
+        throw Error('Ugyldig lengde på personIdentifikator: ' + fødselsnummer);
     }
 
     const dag = getDag(fødselsnummer);
@@ -36,7 +36,7 @@ function getFiresifretÅr(fødselsnummer: string) {
     } else if (individnummer < 1000 && year < 40) {
         return year + 2000;
     } else if (900 < individnummer  || individnummer > 1000 || 39 >= year) {
-        throw new Error('Ugyldig fødselsnummer: ' + fødselsnummer);
+        throw new Error('Ugyldig personIdentifikator: ' + fødselsnummer);
     } else {
         return year + 1900;
     }

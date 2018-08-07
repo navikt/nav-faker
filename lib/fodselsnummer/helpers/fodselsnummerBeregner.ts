@@ -1,6 +1,6 @@
 import NavFaker from '../../navfaker';
 import { padLeftNumber } from '../../utils/string-utils';
-import { Kjønn } from '../fodselsnummer';
+import { Kjønn } from '../personIdentifikator';
 import { beregnKontrollsiffer1, beregnKontrollsiffer2 } from './fodselsnummer-utils';
 
 export interface Options {
