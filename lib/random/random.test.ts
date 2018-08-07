@@ -55,3 +55,24 @@ describe('Number', () => {
     });
 
 });
+
+describe('arrayElement', () => {
+    describe('Med ingen elementer', () => {
+        test('Returnerer undefined', () => {
+            expect(navfaker.random.arrayElement([])).toEqual(undefined);
+        });
+    });
+
+    describe('Med ett element', () => {
+        test('Returnerer det elementet', () => {
+            expect(navfaker.random.arrayElement(['Ibsen'])).toEqual('Ibsen');
+        });
+    });
+
+    describe('Med flere element', () => {
+        test('Returnerer et element', () => {
+            expect(navfaker.random.arrayElement(['Ibsen', 'Bjørnson', 'Kielland', 'Lie']).length)
+                .toBeGreaterThan(0);
+        });
+    });
+});
