@@ -31,6 +31,10 @@ class Random {
         return this.randomGenerator.double() <= vekt;
     }
 
+    public arrayElement(elements: any[]) {
+        return elements[this.number(elements.length - 1)];
+    }
+
     // The maximum is inclusive and the minimum is inclusive
     private randomNumber(min: number, max: number) {
         min = Math.ceil(min);
