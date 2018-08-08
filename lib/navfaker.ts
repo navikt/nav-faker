@@ -3,6 +3,7 @@ import Fødselsnummer from './fodselsnummer/fodselsnummer';
 import Person from './person/person';
 import Random from './random/random';
 import Telefon from './telefon/telefon';
+import Nav from './nav/nav';
 
 class NavFaker {
     public random: Random;
@@ -10,6 +11,7 @@ class NavFaker {
     public dato: Dato;
     public person: Person;
     public telefon: Telefon;
+    public nav: Nav;
 
     constructor() {
         this.fødselsnummer = new Fødselsnummer(this);
@@ -17,6 +19,7 @@ class NavFaker {
         this.dato = new Dato(this);
         this.person = new Person(this);
         this.telefon = new Telefon(this);
+        this.nav = new Nav(this);
     }
 
     public seed(seed: string) {
