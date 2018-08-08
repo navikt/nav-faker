@@ -1,6 +1,6 @@
 import NavFaker from '../../navfaker';
 import { padLeftNumber } from '../../utils/string-utils';
-import { Kjønn } from '../fodselsnummer';
+import { Kjønn } from '../personIdentifikator';
 import { beregnKontrollsiffer1, beregnKontrollsiffer2 } from './fodselsnummer-utils';
 
 export interface Options {
@@ -37,7 +37,7 @@ class FødselsnummerBeregner {
     public tilfeldigFødselsnummer() {
         const gyldigeIndividNummere = this.getGyldigeIndividnummere();
         const tilfeldigIndividNummer =
-            gyldigeIndividNummere[this.faker.random.number(gyldigeIndividNummere.length - 1)];
+            gyldigeIndividNummere[this.faker.random.integer(gyldigeIndividNummere.length - 1)];
 
         const justertFødselsdato = this.justerFødselsdatoForDnummer();
         const k1 = beregnKontrollsiffer1(justertFødselsdato + tilfeldigIndividNummer);
