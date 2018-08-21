@@ -17,10 +17,10 @@ Planen er å implementere støtte for generering av tilfeldige:
 
 ### React / Javascript
 
-```
+```javascript
 import navfaker from 'nav-faker/dist/index';
 
-navfaker.fødselsnummer.generer(); // => 10108000398
+navfaker.personIdentifikator.fødselsnummer(); // => 10108000398
 
 ```
 
@@ -44,14 +44,14 @@ nav-faker har følgende moduler:
 
 ### Dato
 
-```
+```typescript
     mellom(fra: Date, til: Date): Date;
     forÅrSiden(årSiden: number): Date;
 ```
 
 ### PersonIdentifikator
 
-```
+```typescript
     fødselsnummer(fødselsdato?: Date, kjønn?: number): string;
     dnummer(fødselsdato?: Date, kjønn?: number): string;
     myndigFødselsnummer(kjønn?: number): string;
@@ -60,21 +60,21 @@ nav-faker har følgende moduler:
 
 ### Person
 
-```
+```typescript
     kjønn(): number;
     antallBarn(fødselsdato: Date): number;
 ```
 
 ### Random
 
-```
+```typescript
     number(max?: number, min?: number): number;
     vektetSjanse(vekt: number): boolean;
 ```
 
 ### Telefon
 
-```
+```typescript
     mobil(): string;
     jobb(): string;
 ```
