@@ -14,6 +14,11 @@ class Nav {
             'Dagpenger',
             'Arbeidsavklaringspenger',
             'Sykepenger',
+            'Avtalefestet pensjon',
+            'Alderspensjon',
+            'Grunn-og hjelpestønad',
+            'Barnetrygd',
+            'Enslig forsørger',
         ];
         return this.faker.random.arrayElement(ytelser);
     }
