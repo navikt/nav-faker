@@ -84,7 +84,7 @@ nav-faker har følgende moduler:
 
 Kom gjerne med innspill, ønsker og pull-requester!
 
-nav-faker er skrevet i typescript og kompileres ned til javascript. Dette kan da dras inn som en avhengighet av andre applikasjoner. nav-faker er satt opp med et CI bygg på [travis](https://travis-ci.org/navikt/nav-faker/).
+nav-faker er skrevet i typescript og kompileres ned til javascript. Dette kan da dras inn som en avhengighet av andre applikasjoner. nav-faker er satt opp med et CI bygg vha github actions.
 
 ### Oppsett
 
@@ -100,7 +100,8 @@ Bygg og linting med: `yarn build `
 
 Vi bruker verktøyet [semantic-release](https://github.com/semantic-release/semantic-release) for å bestemme når og hvilken versjon som skal publiseres til NPM. Verktøyet analysere commit-meldinger for å bestemme om patch, minor eller major versjon skal publiseres.
 
-Du _bør_ derfor følgende gjeldene [commit-message convention](https://travis-ci.org/navikt/nav-faker/). For enkelhetskyld kan du installere [commitizen](https://github.com/commitizen/cz-cli) som interaktivt hjelper deg å skrive commit-meldinger: `yarn global add commitizen`
+Du _må_ derfor følgende gjeldene [commit-message convention](https://github.com/conventional-changelog/conventional-changelog).
+Man kan enten kjøre `yarn commit`, eller innstallere [commitizen](https://github.com/commitizen/cz-cli) globalt via `yarn global add commitizen` og deretter kjøre `git cz`
 
 Når du ønsker å commite: `yarn commit `
 
@@ -116,15 +117,4 @@ nav-faker baserer seg på [marak/faker](https://github.com/Marak/faker.js). Mock
 
 ## Henvendelser
 
-Spørsmål knyttet til koden eller prosjektet kan rettes mot:
-
-* Daniel Winsvold, daniel.winsvold@nav.no
-* Jan-Eirik B. Nævdal, jan.eirik.b.navdal@nav.no
-* Joakim Lindquister, joakiml@gmail.com
-* Jørund Amsen, jorund.amsen@nav.no
-* Ketil S. Velle, ketil.s.velle@nav.no
-* Richard Borge, richard.borge@nav.no
-
-### For NAV-ansatte
-
-Interne henvendelser kan sendes via Slack i kanalen #team-oppfølging.
+Spørsmål knyttet til koden eller prosjektet kan stilles via issues, evt via intern slack på #personoversikt-intern
