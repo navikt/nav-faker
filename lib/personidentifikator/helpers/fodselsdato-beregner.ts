@@ -31,7 +31,7 @@ function getFiresifretÅr(fødselsnummer: string) {
 
     if (individnummer < 500) {
         return year +  1900;
-    } else if (individnummer < 750 && 56 < year) {
+    } else if (individnummer < 750 && 54 < year) {
         return year + 1800;
     } else if (individnummer < 1000 && year < 40) {
         return year + 2000;
