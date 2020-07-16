@@ -1,4 +1,4 @@
-# nav-faker [![npm version](https://badge.fury.io/js/nav-faker.svg)](https://badge.fury.io/js/nav-faker) [![Build Status](https://travis-ci.org/navikt/nav-faker.svg?branch=master)](https://travis-ci.org/navikt/nav-faker) [![Maintainability](https://api.codeclimate.com/v1/badges/e32a0e4aee01f71e08f6/maintainability)](https://codeclimate.com/github/navikt/nav-faker/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/e32a0e4aee01f71e08f6/test_coverage)](https://codeclimate.com/github/navikt/nav-faker/test_coverage)
+# nav-faker [![npm version](https://badge.fury.io/js/nav-faker.svg)](https://badge.fury.io/js/nav-faker) [![Build status](https://github.com/navikt/nav-faker/workflows/Test,%20build%20and%20publish/badge.svg?branch=master)](https://github.com/navikt/nav-faker/actions?query=workflow%3A%22Test%2C+build+and+publish%22)
 
 nav-faker er et lite bibliotek som lar deg generere opp norske testdata. Biblioteket er under utvikling.
 
