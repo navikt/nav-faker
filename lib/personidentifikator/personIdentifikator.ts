@@ -1,4 +1,3 @@
-import moment = require('moment');
 import NavFaker from '../navfaker';
 import { getConfigOrDefault } from './helpers/config-helper';
 import { fødselsnummerTilDato } from './helpers/fodselsdato-beregner';
@@ -28,8 +27,10 @@ class PersonIdentifikator {
     }
 
     public myndigFødselsnummer(kjønn?: number): string {
-        const maxAlder = moment().subtract(100, 'years').toDate();
-        const minAlder = moment().subtract(18, 'years').toDate();
+        const maxAlder = new Date();
+        maxAlder.setFullYear(maxAlder.getFullYear() - 100, 0, 1);
+        const minAlder = new Date();
+        minAlder.setFullYear(minAlder.getFullYear() - 18, 0, 1);
         const fødselsdato = this.faker.dato.mellom(maxAlder, minAlder);
 
         return this.fødselsnummer(fødselsdato, kjønn);

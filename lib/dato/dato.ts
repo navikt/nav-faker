@@ -1,4 +1,3 @@
-import moment = require('moment');
 import NavFaker from '../navfaker';
 
 class Dato {
@@ -17,10 +16,12 @@ class Dato {
     }
 
     public forÅrSiden(årSiden: number): Date {
-        const datoIKorrektÅr = moment().subtract(årSiden, 'years');
-        return this.mellom(
-            datoIKorrektÅr.startOf('year').toDate(),
-            datoIKorrektÅr.endOf('year').toDate());
+        const start = new Date();
+        start.setFullYear(start.getFullYear() - årSiden, 0, 1);
+        const end = new Date();
+        end.setFullYear(end.getFullYear() - årSiden, 11, 31);
+
+        return this.mellom(start, end);
     }
 
 }

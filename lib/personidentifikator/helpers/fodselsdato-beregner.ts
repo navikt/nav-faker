@@ -1,4 +1,3 @@
-import moment = require('moment');
 import { padLeft } from '../../utils/string-utils';
 import { erDnummer } from './fodselsnummer-utils';
 
@@ -11,7 +10,7 @@ export function fødselsnummerTilDato(fødselsnummer: string): Date {
 
     const fireSifretÅr = getFiresifretÅr(fødselsnummer);
     const måned = fødselsnummer.substring(2, 4);
-    return moment(`${fireSifretÅr}-${måned}-${dag}`).toDate();
+    return new Date(`${fireSifretÅr}-${måned}-${dag}`);
 }
 
 function getDag(fødselsnummer: string): string {
