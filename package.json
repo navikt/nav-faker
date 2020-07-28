@@ -16,13 +16,12 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "babel-core": "^6.26.3",
-    "moment": "^2.22.2",
     "seedrandom": "^2.4.3"
   },
   "devDependencies": {
     "@types/jest": "^23.3.1",
     "@types/seedrandom": "^2.4.27",
+    "babel-core": "^6.26.3",
     "babel-jest": "^23.4.2",
     "cz-conventional-changelog": "^2.1.0",
     "git-cz": "^3.2.1",

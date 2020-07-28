@@ -1,5 +1,3 @@
-import moment = require('moment');
-
 import NavFaker from '../navfaker';
 import { Kjønn } from '../personidentifikator/personIdentifikator';
 
@@ -16,7 +14,7 @@ class Person {
     }
 
     public antallBarn(fødselsdato: Date): number {
-        const alder = moment().diff(fødselsdato, 'years');
+        const alder = new Date(new Date().getTime() - fødselsdato.getTime()).getFullYear() - 1970;
         return this.kalkulerAntallBarn(alder);
     }
 

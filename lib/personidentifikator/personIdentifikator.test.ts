@@ -1,4 +1,3 @@
-import moment = require('moment');
 import navfaker from '../index';
 import {erGyldigFødselsnummer} from './helpers/fodselsnummer-utils';
 
@@ -12,7 +11,7 @@ test('Generer myndigFødselsnummer personIdentifikator', () => {
     const fødselsnummer = navfaker.personIdentifikator.myndigFødselsnummer();
 
     const fødselsdato = navfaker.personIdentifikator.getFødselsdato(fødselsnummer);
-    const alder = moment().diff(moment(fødselsdato), 'years');
+    const alder = new Date(new Date().getTime() - fødselsdato.getTime()).getFullYear() - 1970;
 
     expect(alder).toBeLessThanOrEqual(100);
     expect(alder).toBeGreaterThanOrEqual(18);
