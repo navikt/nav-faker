@@ -19,14 +19,14 @@
     "seedrandom": "^2.4.3"
   },
   "devDependencies": {
-    "@types/jest": "^23.3.1",
+    "@types/jest": "^25.1.5",
     "@types/seedrandom": "^2.4.27",
     "babel-core": "^6.26.3",
-    "babel-jest": "^23.4.2",
+    "babel-jest": "^26.3.0",
     "cz-conventional-changelog": "^2.1.0",
     "git-cz": "^3.2.1",
-    "jest": "^23.4.2",
-    "ts-jest": "^23.1.2",
+    "jest": "^26.4.2",
+    "ts-jest": "^26.3.0",
     "tslint": "^5.11.0",
     "typescript": "^3.0.1"
   },
