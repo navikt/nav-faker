@@ -117,4 +117,6 @@ nav-faker baserer seg på [marak/faker](https://github.com/Marak/faker.js). Mock
 
 ## Henvendelser
 
-Spørsmål knyttet til koden eller prosjektet kan stilles via issues, evt via intern slack på #personoversikt-intern
+Spørsmål knyttet til koden eller prosjektet kan rettes mot:
+
+[Team Personoversikt](https://github.com/navikt/info-team-personoversikt)
